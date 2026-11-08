@@ -1,0 +1,501 @@
+/* =========================================================
+   La Dulzura de Alejandra — hoja de estilos
+   Paleta: rosa pastel · dorado · blanco
+   ========================================================= */
+
+:root {
+  --rosa-nube:   #FDF7F8;
+  --rosa-suave:  #F8E0E6;
+  --rosa-medio:  #F4C2C2;
+  --dorado:      #D4AF37;
+  --dorado-osc:  #B8860B;
+  --blanco:      #FFFFFF;
+  --tinta:       #241D20;
+  --gris:        #6E6166;
+
+  --sombra-suave: 0 6px 24px rgba(201, 150, 160, .18);
+  --sombra-alta:  0 16px 40px rgba(184, 134, 11, .22);
+
+  --fuente-titulo: "Dancing Script", cursive;
+  --fuente-texto:  "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ancho-max: 1180px;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  color: var(--tinta);
+  background: var(--rosa-nube);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--dorado-osc);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Tipografía común ---------- */
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0 0 .5rem;
+  color: var(--tinta);
+}
+
+.subtitulo {
+  margin: 0 auto;
+  max-width: 46ch;
+  color: var(--gris);
+  font-size: .95rem;
+}
+
+/* ---------- Botones ---------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.75rem;
+  border-radius: 999px;
+  font-family: var(--fuente-texto);
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.boton--dorado {
+  background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-osc) 100%);
+  color: var(--blanco);
+  box-shadow: 0 6px 18px rgba(184, 134, 11, .28);
+}
+
+.boton--dorado:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(184, 134, 11, .38);
+}
+
+.boton--linea {
+  background: rgba(255, 255, 255, .6);
+  color: var(--dorado-osc);
+  border: 1.5px solid var(--dorado);
+}
+
+.boton--linea:hover {
+  background: var(--blanco);
+  transform: translateY(-2px);
+}
+
+.boton--bloque { width: 100%; }
+
+.icono-wsp {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ---------- Barra superior ---------- */
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding: .85rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(253, 247, 248, .88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, .28);
+}
+
+.barra__marca {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+.barra__nav {
+  display: flex;
+  flex-shrink: 0;       /* si no cabe, baja completo a la siguiente línea */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem clamp(.9rem, 2.5vw, 1.8rem);
+}
+
+.barra__nav a {
+  position: relative;
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gris);
+  padding-bottom: 2px;
+}
+
+.barra__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--dorado);
+  transition: width .3s ease;
+}
+
+.barra__nav a:hover { color: var(--tinta); }
+.barra__nav a:hover::after { width: 100%; }
+
+/* ---------- Portada ---------- */
+.portada {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 9vw, 6rem) 1.25rem clamp(3.5rem, 10vw, 6.5rem);
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 55% at 20% 15%, rgba(244, 194, 194, .55), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 85% 35%, rgba(248, 224, 230, .85), transparent 72%),
+    radial-gradient(ellipse 70% 60% at 50% 100%, rgba(244, 194, 194, .35), transparent 70%),
+    var(--rosa-nube);
+}
+
+/* Malla de líneas doradas finas, como en el logo */
+.portada::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(115deg, transparent 49.85%, rgba(212, 175, 55, .22) 50%, transparent 50.15%),
+    linear-gradient(-70deg, transparent 49.85%, rgba(212, 175, 55, .16) 50%, transparent 50.15%),
+    linear-gradient(160deg, transparent 49.9%, rgba(212, 175, 55, .13) 50%, transparent 50.1%);
+  background-size: 340px 340px, 260px 260px, 480px 480px;
+  pointer-events: none;
+}
+
+.portada__contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* logo-emblema.png ya viene recortado y con el fondo blanco en
+   transparencia, así que se funde solo con el rosa de la portada.
+   La máscara solo suaviza los bordes y borra las líneas doradas
+   sueltas que quedaron del flyer en las esquinas. */
+.portada__logo {
+  width: clamp(260px, 60vw, 430px);
+  height: auto;
+  margin: 0 auto .4rem;
+  mask-image: radial-gradient(ellipse 64% 62% at 50% 50%, #000 60%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 64% 62% at 50% 50%, #000 60%, transparent 88%);
+}
+
+.portada__lema {
+  margin: 0;
+  font-size: clamp(.78rem, 2.4vw, .95rem);
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--dorado-osc);
+}
+
+.portada__divisor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  margin: 1.1rem auto 1.25rem;
+  max-width: 260px;
+  color: var(--dorado);
+  font-size: .85rem;
+}
+
+.portada__divisor span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+
+.portada__texto {
+  margin: 0 0 2rem;
+  color: var(--gris);
+  font-size: clamp(.95rem, 2.6vw, 1.05rem);
+}
+
+.portada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .85rem;
+}
+
+/* ---------- Secciones ---------- */
+/* Evita que la barra fija tape los títulos al usar el menú */
+.seccion, .personalizados, .portada { scroll-margin-top: 100px; }
+
+.seccion {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.seccion__encabezado {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+/* ---------- Catálogo ---------- */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 268px), 1fr));
+  gap: clamp(1.1rem, 2.5vw, 1.9rem);
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--blanco);
+  border: 1px solid rgba(212, 175, 55, .3);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-alta);
+}
+
+.tarjeta__foto {
+  position: relative;
+  /* Cuadrado: las fotos vienen horizontales y verticales,
+     y el recorte cuadrado respeta mejor a las dos. */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--rosa-suave);
+}
+
+.tarjeta__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.tarjeta:hover .tarjeta__foto img { transform: scale(1.06); }
+
+.tarjeta__etiqueta {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  z-index: 2;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-osc) 100%);
+  color: var(--blanco);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, .3);
+}
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.15rem 1.25rem 1.35rem;
+  text-align: center;
+}
+
+.tarjeta__nombre {
+  margin: 0 0 .4rem;
+  font-size: .97rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--tinta);
+}
+
+.tarjeta__precio {
+  margin: 0 0 1.1rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: var(--dorado-osc);
+}
+
+/* Empuja el botón al fondo para que todas las tarjetas queden parejas */
+.tarjeta__cuerpo .boton { margin-top: auto; }
+
+/* ---------- Postres personalizados ---------- */
+.personalizados {
+  padding: clamp(2.5rem, 7vw, 4.5rem) clamp(1rem, 4vw, 2rem);
+  background:
+    radial-gradient(ellipse 70% 70% at 15% 20%, rgba(244, 194, 194, .55), transparent 70%),
+    radial-gradient(ellipse 65% 65% at 85% 80%, rgba(248, 224, 230, .9), transparent 72%),
+    var(--rosa-suave);
+}
+
+.personalizados__caja {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.4rem, 4vw, 3rem);
+  text-align: center;
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid rgba(212, 175, 55, .45);
+  border-radius: 24px;
+  box-shadow: var(--sombra-suave);
+  backdrop-filter: blur(4px);
+}
+
+.personalizados__caja p {
+  color: var(--gris);
+  font-size: .98rem;
+}
+
+.personalizados__frase {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.3rem, 3.6vw, 1.7rem);
+  color: var(--dorado-osc) !important;
+  margin: 1rem 0 1.75rem;
+  line-height: 1.35;
+}
+
+/* ---------- Información de pedidos ---------- */
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.1rem;
+}
+
+.info__tarjeta {
+  padding: 1.5rem 1.4rem;
+  background: var(--blanco);
+  border: 1px solid rgba(212, 175, 55, .28);
+  border-radius: 18px;
+  box-shadow: var(--sombra-suave);
+}
+
+.info__tarjeta h3 {
+  margin: 0 0 .5rem;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--dorado-osc);
+}
+
+.info__tarjeta p {
+  margin: 0;
+  font-size: .92rem;
+  color: var(--gris);
+}
+
+.info__tarjeta strong { color: var(--tinta); }
+
+/* ---------- Pie de página ---------- */
+.pie {
+  padding: clamp(2.5rem, 6vw, 3.5rem) 1.25rem 2.5rem;
+  text-align: center;
+  background: var(--tinta);
+  color: var(--rosa-suave);
+}
+
+.pie__marca {
+  margin: 0 0 1.1rem;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  color: var(--dorado);
+}
+
+.pie__contacto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem 2rem;
+  margin-bottom: 1.4rem;
+}
+
+.pie__contacto a {
+  font-size: .9rem;
+  text-decoration: none;
+  color: var(--rosa-suave);
+  border-bottom: 1px solid rgba(212, 175, 55, .5);
+  padding-bottom: 2px;
+  transition: color .25s ease;
+}
+
+.pie__contacto a:hover { color: var(--dorado); }
+
+.pie__nota {
+  margin: 0;
+  font-size: .76rem;
+  letter-spacing: .08em;
+  color: rgba(248, 224, 230, .55);
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.flotante {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, .42);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.flotante svg {
+  width: 27px;
+  height: 27px;
+  fill: var(--blanco);
+}
+
+.flotante:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, .55);
+}
+
+/* ---------- Ajustes para pantallas pequeñas ---------- */
+@media (max-width: 560px) {
+  .barra { justify-content: center; text-align: center; }
+  .barra__marca { font-size: 1.35rem; }
+  .portada__acciones .boton { width: 100%; max-width: 280px; }
+  .tarjeta__precio { font-size: 1.75rem; }
+}
+
+/* ---------- Respeta a quien prefiere menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
