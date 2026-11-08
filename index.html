@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Dulzura de Alejandra | Pasteles y postres artesanales en Tequisquiapan</title>
+  <meta name="description" content="Catálogo de pasteles, mousses, gelatinas y cheesecakes artesanales hechos en Tequisquiapan, Querétaro. Pide por WhatsApp.">
+  <link rel="icon" href="img/logo-emblema.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ===== BARRA SUPERIOR ===== -->
+  <header class="barra">
+    <a href="#inicio" class="barra__marca">La Dulzura de Alejandra</a>
+    <nav class="barra__nav">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#personalizados">Personalizados</a>
+      <a href="#info">Pedidos</a>
+    </nav>
+  </header>
+
+  <!-- ===== PORTADA ===== -->
+  <section class="portada" id="inicio">
+    <div class="portada__contenido">
+      <img src="img/logo-emblema.png" alt="Logo de La Dulzura de Alejandra" class="portada__logo"
+           width="570" height="500">
+      <p class="portada__lema">Pasteles y postres artesanales</p>
+      <div class="portada__divisor"><span></span>&#10022;<span></span></div>
+      <p class="portada__texto">
+        Hechos en casa, con ingredientes de verdad.<br>
+        Tequisquiapan, Querétaro.
+      </p>
+      <div class="portada__acciones">
+        <a href="#catalogo" class="boton boton--dorado">Ver catálogo</a>
+        <a href="#" class="boton boton--linea" data-wsp-general>Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATÁLOGO ===== -->
+  <section class="seccion" id="catalogo">
+    <div class="seccion__encabezado">
+      <h2 class="titulo">Nuestro catálogo</h2>
+      <p class="subtitulo">
+        Todos nuestros postres son de 1&nbsp;kg, de 23 a 26&nbsp;cm de diámetro,
+        rinden de 8 a 10 rebanadas.
+      </p>
+    </div>
+
+    <!-- Las tarjetas las genera js/app.js a partir de la lista de productos -->
+    <div class="catalogo" id="catalogo-grid"></div>
+  </section>
+
+  <!-- ===== PERSONALIZADOS ===== -->
+  <section class="personalizados" id="personalizados">
+    <div class="personalizados__caja">
+      <h2 class="titulo">¿No encuentras tu postre favorito?</h2>
+      <p>
+        Hasta ahora estos son todos los que hemos preparado, pero si quieres
+        <strong>otro sabor en particular</strong> también lo cotizamos.
+      </p>
+      <p class="personalizados__frase">
+        ¡No te preocupes! Personalízalo y te lo cotizamos sin compromiso.
+      </p>
+      <a href="#" class="boton boton--dorado" data-wsp-personalizado>Cotizar mi postre</a>
+    </div>
+  </section>
+
+  <!-- ===== INFORMACIÓN DE PEDIDOS ===== -->
+  <section class="seccion" id="info">
+    <div class="seccion__encabezado">
+      <h2 class="titulo">Cómo hacer tu pedido</h2>
+    </div>
+
+    <div class="info">
+      <article class="info__tarjeta">
+        <h3>Anticipación</h3>
+        <p>Pide con <strong>3 días</strong> de anticipación. Los pedidos urgentes dependen de la disponibilidad.</p>
+      </article>
+      <article class="info__tarjeta">
+        <h3>Apartado</h3>
+        <p>Tu pedido se aparta con <strong>$50</strong>. El resto se liquida en la entrega.</p>
+      </article>
+      <article class="info__tarjeta">
+        <h3>Pagos</h3>
+        <p>Aceptamos <strong>efectivo y transferencia</strong>.</p>
+      </article>
+      <article class="info__tarjeta">
+        <h3>Entrega en Tequisquiapan</h3>
+        <p>En el local <strong>Tortas La Michoacana</strong>, sobre la carretera a Ezequiel Montes, a un lado de Pollos a la Leña.</p>
+      </article>
+      <article class="info__tarjeta">
+        <h3>Entrega en San Juan del Río</h3>
+        <p>En un punto público acordado. Costo de envío <strong>$35</strong>, sujeto a disponibilidad.</p>
+      </article>
+      <article class="info__tarjeta">
+        <h3>Datos que necesitamos</h3>
+        <p>Nombre, teléfono y fecha del evento.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="pie" id="contacto">
+    <p class="pie__marca">La Dulzura de Alejandra</p>
+    <div class="pie__contacto">
+      <a href="#" data-wsp-general>WhatsApp 414 122 9186</a>
+      <a href="https://www.instagram.com/honey_moon_bae_k/" target="_blank" rel="noopener">Instagram @honey_moon_bae_k</a>
+    </div>
+    <p class="pie__nota">Tequisquiapan, Querétaro &middot; Hecho con cariño</p>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="#" class="flotante" data-wsp-general aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.599 5.317l-.999 3.648 3.889-1.02zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
